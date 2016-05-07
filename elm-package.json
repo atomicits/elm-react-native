@@ -1,0 +1,21 @@
+{
+    "version": "0.0.1",
+    "summary": "Build React Native Apps with Elm",
+    "repository": "https://github.com/atomicits/elm-react-native.git",
+    "license": "BSD3",
+    "source-directories": [
+        "src"
+    ],
+    "native-modules": true,
+    "exposed-modules": [
+      "ReactNative",
+      "ReactNative.App",
+      "ReactNative.Attributes",
+      "ReactNative.Events",
+      "ReactNative.Lazy"
+    ],
+    "dependencies": {
+        "elm-lang/core": "4.0.0 <= v < 5.0.0"
+    },
+    "elm-version": "0.17.0 <= v < 0.18.0"
+}
