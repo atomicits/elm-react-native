@@ -1,6 +1,6 @@
 //import //
 
-var _elm_lang$core$Native_Platform = function() {
+var _atomicits$elm_react_native$Native_Platform = function() {
 
 
 // PROGRAMS
@@ -10,11 +10,6 @@ function addPublicModule(object, name, main)
 	var embed = main ? makeEmbed(name, main) : mainIsUndefined(name);
 
 	object['embed'] = embed;
-
-	object['fullscreen'] = function fullscreen(flags)
-	{
-		return embed(document.body, flags);
-	};
 }
 
 
@@ -74,7 +69,7 @@ function mainToProgram(moduleName, wrappedMain)
 			emptyBag
 		);
 
-		return _elm_lang$virtual_dom$VirtualDom$programWithFlags({
+		return _atomicits$elm_react_native$Native_ReactNative.programWithFlags({
 			init: function() { return noChange; },
 			view: function() { return main; },
 			update: F2(function() { return noChange; }),
@@ -87,7 +82,7 @@ function mainToProgram(moduleName, wrappedMain)
 		? initWithFlags(moduleName, main.init, flags)
 		: initWithoutFlags(moduleName, main.init);
 
-	return _elm_lang$virtual_dom$VirtualDom$programWithFlags({
+	return _atomicits$elm_react_native$Native_ReactNative.programWithFlags({
 		init: init,
 		view: main.view,
 		update: main.update,
