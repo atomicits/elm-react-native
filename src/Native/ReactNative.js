@@ -7,8 +7,15 @@ var EVENT_KEY = 'EVENT';
 var ATTR_KEY = 'ATTR';
 var ATTR_NS_KEY = 'ATTR_NS';
 
+var React = require('react');
+var {
+  StyleSheet,
+  Text,
+  View
+} = require('react-native');
 
 
+var RN = require('react-native');
 ////////////  VIRTUAL DOM NODES  ////////////
 
 
@@ -243,7 +250,9 @@ function renderer(parent, tagger, initialVirtualNode)
 	var eventNode = { tagger: tagger, parent: null };
 
 	var domNode = render(initialVirtualNode, eventNode);
-	parent.appendChild(domNode);
+
+	// parent.setRootNode(React.createElement(Text, {}, "From Elm.js"));
+	parent.setRootNode(domNode);
 
 	var state = 'NO_REQUEST';
 	var currentVirtualNode = initialVirtualNode;
@@ -320,24 +329,36 @@ function render(vNode, eventNode)
 			return domNode;
 
 		case 'text':
-			return document.createTextNode(vNode.text);
+			return React.createElement(Text, {style:{color:"red"}}, vNode.text);
 
 		case 'node':
-			var domNode = vNode.namespace
-				? document.createElementNS(vNode.namespace, vNode.tag)
-				: document.createElement(vNode.tag);
+			// var domNode = vNode.namespace
+			// 	// ? React.createElement(vNode.namespace, vNode.tag)
+			// 	? React.createElement(vNode.tag, {}, {})
+			// 	: React.createElement(vNode.tag, {}, {});
+			var domNode = {};
 
 			applyFacts(domNode, eventNode, vNode.facts);
 
 			var children = vNode.children;
+			var childNodes = [];
 
 			for (var i = 0; i < children.length; i++)
 			{
-				domNode.appendChild(render(children[i], eventNode));
+				childNodes.push(render(children[i], eventNode));
 			}
 
-			return domNode;
+			console.log(domNode);
 
+			var args = [RN[vNode.tag], {style:{width:50, height:50, flex:1}}, ...childNodes];
+			return React.createElement.apply(null, args);
+			// return domNode;
+			// return React.createClass({
+			// 	render: function(){
+			// 		return React.createElement.apply(null, args);
+			// 	}
+			// });
+// vNode.tag, {}, childNodes
 		case 'custom':
 			var domNode = vNode.impl.render(vNode.model);
 			applyFacts(domNode, eventNode, vNode.facts);
@@ -363,7 +384,7 @@ function applyFacts(domNode, eventNode, facts)
 				break;
 
 			case EVENT_KEY:
-				applyEvents(domNode, eventNode, value);
+				// applyEvents(domNode, eventNode, value);
 				break;
 
 			case ATTR_KEY:
@@ -383,7 +404,7 @@ function applyFacts(domNode, eventNode, facts)
 
 function applyStyles(domNode, styles)
 {
-	var domNodeStyle = domNode.style;
+	var domNodeStyle = domNode.style = {};
 
 	for (var key in styles)
 	{
