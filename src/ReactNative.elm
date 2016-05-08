@@ -1,4 +1,4 @@
-module ReactNative exposing (Node, text, node, view, Property, property, attribute, attributeNS, style, on, onWithOptions, Options, defaultOptions, map, lazy, lazy2, lazy3, programWithFlags)
+module ReactNative exposing (..)
 
 {-| API to the core diffing algorithm. Can serve as a foundation for libraries
 that expose more helper functions for HTML or SVG.
@@ -24,7 +24,20 @@ that expose more helper functions for HTML or SVG.
 # Programs
 @docs programWithFlags
 
+
+@docs activityIndicatorIos, datePickerIos, drawerLayoutAndroid, image, listView, mapView
+@docs modal ,navigator, navigatorIos, picker ,pickerIos ,progressBar ,progressBarAndroid
+@docs progressView, progressViewIos, refreshControl ,scrollView, segmentedControl
+@docs segmentedControlIos ,slider, sliderIos, statusBar, switch, tabBar, tabBarIos
+@docs tabBarIosItem , text ,textInput ,toolbar, toolbarAndroid ,touchableHighlight
+@docs touchableNativeFeedback ,touchableOpacity, touchableWithoutFeedback ,view
+@docs viewPagerAndroid, webView
+
+
+@docs hack
 -}
+
+-- module ReactNative exposing (Node, text, node, view, Property, property, attribute, attributeNS, style, on, onWithOptions, Options, defaultOptions, map, lazy, lazy2, lazy3, programWithFlags)
 
 import Native.Platform
 import Native.ReactNative
@@ -298,6 +311,217 @@ programWithFlags =
   Native.ReactNative.programWithFlags
 
 
+{-| -}
 hack : Bool
 hack =
   Native.Platform.succeed
+
+
+{-| -}
+image : List (Property msg) -> List (Node msg) -> Node msg
+image =
+  node "Image"
+
+
+{-| -}
+activityIndicatorIos : List (Property msg) -> List (Node msg) -> Node msg
+activityIndicatorIos =
+  node "ActivityIndicatorIOS"
+
+
+{-| -}
+datePickerIos : List (Property msg) -> List (Node msg) -> Node msg
+datePickerIos =
+  node "DatePickerIOS"
+
+
+{-| -}
+drawerLayoutAndroid : List (Property msg) -> List (Node msg) -> Node msg
+drawerLayoutAndroid =
+  node "DrawerLayoutAndroid"
+
+
+{-| -}
+mapView : List (Property msg) -> List (Node msg) -> Node msg
+mapView =
+  node "MapView"
+
+
+{-| -}
+picker : List (Property msg) -> List (Node msg) -> Node msg
+picker =
+  node "Picker"
+
+
+{-| -}
+progressBar : List (Property msg) -> List (Node msg) -> Node msg
+progressBar =
+  node "ProgressBar"
+
+
+{-| -}
+progressView : List (Property msg) -> List (Node msg) -> Node msg
+progressView =
+  node "ProgressView"
+
+
+{-| -}
+refreshControl : List (Property msg) -> List (Node msg) -> Node msg
+refreshControl =
+  node "RefreshControl"
+
+
+{-| -}
+scrollView : List (Property msg) -> List (Node msg) -> Node msg
+scrollView =
+  node "ScrollView"
+
+
+{-| -}
+segmentedControl : List (Property msg) -> List (Node msg) -> Node msg
+segmentedControl =
+  node "SegmentedControl"
+
+
+{-| -}
+slider : List (Property msg) -> List (Node msg) -> Node msg
+slider =
+  node "Slider"
+
+
+{-| -}
+statusBar : List (Property msg) -> List (Node msg) -> Node msg
+statusBar =
+  node "StatusBar"
+
+
+{-| -}
+switch : List (Property msg) -> List (Node msg) -> Node msg
+switch =
+  node "Switch"
+
+
+{-| -}
+tabBar : List (Property msg) -> List (Node msg) -> Node msg
+tabBar =
+  node "TabBar"
+
+
+{-| -}
+textInput : List (Property msg) -> List (Node msg) -> Node msg
+textInput =
+  node "TextInput"
+
+
+{-| -}
+toolbar : List (Property msg) -> List (Node msg) -> Node msg
+toolbar =
+  node "Toolbar"
+
+
+{-| -}
+listView : List (Property msg) -> List (Node msg) -> Node msg
+listView =
+  node "ListView"
+
+
+{-| -}
+modal : List (Property msg) -> List (Node msg) -> Node msg
+modal =
+  node "Modal"
+
+
+{-| -}
+navigator : List (Property msg) -> List (Node msg) -> Node msg
+navigator =
+  node "Navigator"
+
+
+{-| -}
+navigatorIos : List (Property msg) -> List (Node msg) -> Node msg
+navigatorIos =
+  node "NavigatorIOS"
+
+
+{-| -}
+pickerIos : List (Property msg) -> List (Node msg) -> Node msg
+pickerIos =
+  node "PickerIOS"
+
+
+{-| -}
+progressBarAndroid : List (Property msg) -> List (Node msg) -> Node msg
+progressBarAndroid =
+  node "ProgressBarAndroid"
+
+
+{-| -}
+progressViewIos : List (Property msg) -> List (Node msg) -> Node msg
+progressViewIos =
+  node "ProgressViewIOS"
+
+
+{-| -}
+segmentedControlIos : List (Property msg) -> List (Node msg) -> Node msg
+segmentedControlIos =
+  node "SegmentedControlIOS"
+
+
+{-| -}
+sliderIos : List (Property msg) -> List (Node msg) -> Node msg
+sliderIos =
+  node "SliderIOS"
+
+
+{-| -}
+tabBarIos : List (Property msg) -> List (Node msg) -> Node msg
+tabBarIos =
+  node "TabBarIOS"
+
+
+{-| -}
+tabBarIosItem : List (Property msg) -> List (Node msg) -> Node msg
+tabBarIosItem =
+  node "TabBarIOS.Item"
+
+
+{-| -}
+toolbarAndroid : List (Property msg) -> List (Node msg) -> Node msg
+toolbarAndroid =
+  node "ToolbarAndroid"
+
+
+{-| -}
+touchableHighlight : List (Property msg) -> List (Node msg) -> Node msg
+touchableHighlight =
+  node "TouchableHighlight"
+
+
+{-| -}
+touchableNativeFeedback : List (Property msg) -> List (Node msg) -> Node msg
+touchableNativeFeedback =
+  node "TouchableNativeFeedback"
+
+
+{-| -}
+touchableOpacity : List (Property msg) -> List (Node msg) -> Node msg
+touchableOpacity =
+  node "TouchableOpacity"
+
+
+{-| -}
+touchableWithoutFeedback : List (Property msg) -> List (Node msg) -> Node msg
+touchableWithoutFeedback =
+  node "TouchableWithoutFeedback"
+
+
+{-| -}
+viewPagerAndroid : List (Property msg) -> List (Node msg) -> Node msg
+viewPagerAndroid =
+  node "ViewPagerAndroid"
+
+
+{-| -}
+webView : List (Property msg) -> List (Node msg) -> Node msg
+webView =
+  node "WebView"
