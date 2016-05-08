@@ -1,4 +1,4 @@
-module ReactNative.Events exposing (onClick, onDoubleClick, onMouseDown, onMouseUp, onMouseEnter, onMouseLeave, onMouseOver, onMouseOut, onInput, onCheck, onSubmit, onBlur, onFocus, on, onWithOptions, Options, defaultOptions, targetValue, targetChecked, keyCode)
+module ReactNative.Events exposing (..)
 
 {-|
 It is often helpful to create an [Union Type][] so you can have many different kinds
@@ -24,6 +24,24 @@ of events as seen in the [TodoMVC][] example.
 
 # Custom Decoders
 @docs targetValue, targetChecked, keyCode
+
+@docs onAccessibilityTap, onActionSelected, onAnnotationPress, onChange
+@docs onChangeText, onChangeVisibleRows, onContentSizeChange, onDateChange
+@docs onDidFocus, onDrawerClose, onDrawerOpen, onDrawerSlide
+@docs onDrawerStateChanged, onEndEditing, onEndReached, onError
+@docs onHideUnderlay, onIconClicked, onKeyPress, onLayout, onLoad, onLoadEnd
+@docs onLoadStart, onLongPress, onMagicTap, onMoveShouldSetResponder
+@docs onMoveShouldSetResponderCapture, onNavigationStateChange, onPageScroll
+@docs onPageScrollStateChanged, onPageSelected, onPickerValueChange, onPress
+@docs onPressIn, onPressOut, onProgress, onRefresh, onRegionChange
+@docs onRegionChangeComplete, onRequestClose, onResponderGrant, onResponderMove
+@docs onResponderReject, onResponderRelease, onResponderTerminate
+@docs onResponderTerminationRequest, onScroll, onScrollAnimationEnd
+@docs onSegmentedControlValueChange, onSelectionChange
+@docs onShouldStartLoadWithRequest, onShow, onShowUnderlay, onSliderValueChange
+@docs onSlidingComplete, onStartShouldSetResponder
+@docs onStartShouldSetResponderCapture, onSubmitEditing, onSubmitOptions
+@docs onSwitchValueChange, onTintColor, onValueChange, onWillFocus
 -}
 
 import ReactNative exposing (..)
@@ -121,6 +139,7 @@ onSubmit msg =
   onWithOptions "submit" onSubmitOptions (Json.succeed msg)
 
 
+{-| -}
 onSubmitOptions : Options
 onSubmitOptions =
   { defaultOptions | preventDefault = True }
@@ -257,3 +276,390 @@ helpers here for `onKeyUp`, `onKeyDown`, `onKeyPress`, etc.
 keyCode : Json.Decoder Int
 keyCode =
   ("keyCode" := Json.int)
+
+
+
+-- All Events for React Native
+
+
+{-| -}
+onLayout : msg -> Property msg
+onLayout msg =
+  on "Layout" (Json.succeed msg)
+
+
+{-| -}
+onPress : msg -> Property msg
+onPress msg =
+  on "Press" (Json.succeed msg)
+
+
+{-| -}
+onLoadStart : msg -> Property msg
+onLoadStart msg =
+  on "LoadStart" (Json.succeed msg)
+
+
+{-| -}
+onProgress : msg -> Property msg
+onProgress msg =
+  on "Progress" (Json.succeed msg)
+
+
+{-| -}
+onError : msg -> Property msg
+onError msg =
+  on "Error" (Json.succeed msg)
+
+
+{-| -}
+onLoad : msg -> Property msg
+onLoad msg =
+  on "Load" (Json.succeed msg)
+
+
+{-| -}
+onLoadEnd : msg -> Property msg
+onLoadEnd msg =
+  on "LoadEnd" (Json.succeed msg)
+
+
+{-| -}
+onRegionChange : msg -> Property msg
+onRegionChange msg =
+  on "RegionChange" (Json.succeed msg)
+
+
+{-| -}
+onRegionChangeComplete : msg -> Property msg
+onRegionChangeComplete msg =
+  on "RegionChangeComplete" (Json.succeed msg)
+
+
+{-| -}
+onAnnotationPress : msg -> Property msg
+onAnnotationPress msg =
+  on "AnnotationPress" (Json.succeed msg)
+
+
+{-| -}
+onPickerValueChange : msg -> Property msg
+onPickerValueChange msg =
+  on "PickerValueChange" (Json.succeed msg)
+
+
+{-| -}
+onRefresh : msg -> Property msg
+onRefresh msg =
+  on "Refresh" (Json.succeed msg)
+
+
+{-| -}
+onScroll : msg -> Property msg
+onScroll msg =
+  on "Scroll" (Json.succeed msg)
+
+
+{-| -}
+onScrollAnimationEnd : msg -> Property msg
+onScrollAnimationEnd msg =
+  on "ScrollAnimationEnd" (Json.succeed msg)
+
+
+{-| -}
+onContentSizeChange : msg -> Property msg
+onContentSizeChange msg =
+  on "ContentSizeChange" (Json.succeed msg)
+
+
+{-| -}
+onSegmentedControlValueChange : msg -> Property msg
+onSegmentedControlValueChange msg =
+  on "SegmentedControlValueChange" (Json.succeed msg)
+
+
+{-| -}
+onChange : msg -> Property msg
+onChange msg =
+  on "Change" (Json.succeed msg)
+
+
+{-| -}
+onSliderValueChange : msg -> Property msg
+onSliderValueChange msg =
+  on "SliderValueChange" (Json.succeed msg)
+
+
+{-| -}
+onSlidingComplete : msg -> Property msg
+onSlidingComplete msg =
+  on "SlidingComplete" (Json.succeed msg)
+
+
+{-| -}
+onSwitchValueChange : msg -> Property msg
+onSwitchValueChange msg =
+  on "SwitchValueChange" (Json.succeed msg)
+
+
+
+-- {-| -}
+-- onBlur : msg -> Property msg
+-- onBlur msg =
+--   on "Blur" (Json.succeed msg)
+-- {-| -}
+-- onFocus : msg -> Property msg
+-- onFocus msg =
+--   on "Focus" (Json.succeed msg)
+
+
+{-| -}
+onChangeText : msg -> Property msg
+onChangeText msg =
+  on "ChangeText" (Json.succeed msg)
+
+
+{-| -}
+onEndEditing : msg -> Property msg
+onEndEditing msg =
+  on "EndEditing" (Json.succeed msg)
+
+
+{-| -}
+onSelectionChange : msg -> Property msg
+onSelectionChange msg =
+  on "SelectionChange" (Json.succeed msg)
+
+
+{-| -}
+onSubmitEditing : msg -> Property msg
+onSubmitEditing msg =
+  on "SubmitEditing" (Json.succeed msg)
+
+
+{-| -}
+onKeyPress : msg -> Property msg
+onKeyPress msg =
+  on "KeyPress" (Json.succeed msg)
+
+
+{-| -}
+onActionSelected : msg -> Property msg
+onActionSelected msg =
+  on "ActionSelected" (Json.succeed msg)
+
+
+{-| -}
+onIconClicked : msg -> Property msg
+onIconClicked msg =
+  on "IconClicked" (Json.succeed msg)
+
+
+{-| -}
+onAccessibilityTap : msg -> Property msg
+onAccessibilityTap msg =
+  on "AccessibilityTap" (Json.succeed msg)
+
+
+{-| -}
+onMagicTap : msg -> Property msg
+onMagicTap msg =
+  on "MagicTap" (Json.succeed msg)
+
+
+{-| -}
+onResponderGrant : msg -> Property msg
+onResponderGrant msg =
+  on "ResponderGrant" (Json.succeed msg)
+
+
+{-| -}
+onResponderMove : msg -> Property msg
+onResponderMove msg =
+  on "ResponderMove" (Json.succeed msg)
+
+
+{-| -}
+onResponderReject : msg -> Property msg
+onResponderReject msg =
+  on "ResponderReject" (Json.succeed msg)
+
+
+{-| -}
+onResponderRelease : msg -> Property msg
+onResponderRelease msg =
+  on "ResponderRelease" (Json.succeed msg)
+
+
+{-| -}
+onResponderTerminate : msg -> Property msg
+onResponderTerminate msg =
+  on "ResponderTerminate" (Json.succeed msg)
+
+
+{-| -}
+onResponderTerminationRequest : msg -> Property msg
+onResponderTerminationRequest msg =
+  on "ResponderTerminationRequest" (Json.succeed msg)
+
+
+{-| -}
+onStartShouldSetResponder : msg -> Property msg
+onStartShouldSetResponder msg =
+  on "StartShouldSetResponder" (Json.succeed msg)
+
+
+{-| -}
+onStartShouldSetResponderCapture : msg -> Property msg
+onStartShouldSetResponderCapture msg =
+  on "StartShouldSetResponderCapture" (Json.succeed msg)
+
+
+{-| -}
+onMoveShouldSetResponder : msg -> Property msg
+onMoveShouldSetResponder msg =
+  on "MoveShouldSetResponder" (Json.succeed msg)
+
+
+{-| -}
+onMoveShouldSetResponderCapture : msg -> Property msg
+onMoveShouldSetResponderCapture msg =
+  on "MoveShouldSetResponderCapture" (Json.succeed msg)
+
+
+{-| -}
+onDateChange : msg -> Property msg
+onDateChange msg =
+  on "DateChange" (Json.succeed msg)
+
+
+{-| -}
+onDrawerClose : msg -> Property msg
+onDrawerClose msg =
+  on "DrawerClose" (Json.succeed msg)
+
+
+{-| -}
+onDrawerOpen : msg -> Property msg
+onDrawerOpen msg =
+  on "DrawerOpen" (Json.succeed msg)
+
+
+{-| -}
+onDrawerSlide : msg -> Property msg
+onDrawerSlide msg =
+  on "DrawerSlide" (Json.succeed msg)
+
+
+{-| -}
+onDrawerStateChanged : msg -> Property msg
+onDrawerStateChanged msg =
+  on "DrawerStateChanged" (Json.succeed msg)
+
+
+{-| -}
+onChangeVisibleRows : msg -> Property msg
+onChangeVisibleRows msg =
+  on "ChangeVisibleRows" (Json.succeed msg)
+
+
+{-| -}
+onEndReached : msg -> Property msg
+onEndReached msg =
+  on "EndReached" (Json.succeed msg)
+
+
+{-| -}
+onRequestClose : msg -> Property msg
+onRequestClose msg =
+  on "RequestClose" (Json.succeed msg)
+
+
+{-| -}
+onShow : msg -> Property msg
+onShow msg =
+  on "Show" (Json.succeed msg)
+
+
+{-| -}
+onDidFocus : msg -> Property msg
+onDidFocus msg =
+  on "DidFocus" (Json.succeed msg)
+
+
+{-| -}
+onWillFocus : msg -> Property msg
+onWillFocus msg =
+  on "WillFocus" (Json.succeed msg)
+
+
+{-| -}
+onValueChange : msg -> Property msg
+onValueChange msg =
+  on "ValueChange" (Json.succeed msg)
+
+
+{-| -}
+onTintColor : msg -> Property msg
+onTintColor msg =
+  on "TintColor" (Json.succeed msg)
+
+
+{-| -}
+onHideUnderlay : msg -> Property msg
+onHideUnderlay msg =
+  on "HideUnderlay" (Json.succeed msg)
+
+
+{-| -}
+onShowUnderlay : msg -> Property msg
+onShowUnderlay msg =
+  on "ShowUnderlay" (Json.succeed msg)
+
+
+{-| -}
+onLongPress : msg -> Property msg
+onLongPress msg =
+  on "LongPress" (Json.succeed msg)
+
+
+{-| -}
+onPressIn : msg -> Property msg
+onPressIn msg =
+  on "PressIn" (Json.succeed msg)
+
+
+{-| -}
+onPressOut : msg -> Property msg
+onPressOut msg =
+  on "PressOut" (Json.succeed msg)
+
+
+{-| -}
+onPageScroll : msg -> Property msg
+onPageScroll msg =
+  on "PageScroll" (Json.succeed msg)
+
+
+{-| -}
+onPageScrollStateChanged : msg -> Property msg
+onPageScrollStateChanged msg =
+  on "PageScrollStateChanged" (Json.succeed msg)
+
+
+{-| -}
+onPageSelected : msg -> Property msg
+onPageSelected msg =
+  on "PageSelected" (Json.succeed msg)
+
+
+{-| -}
+onNavigationStateChange : msg -> Property msg
+onNavigationStateChange msg =
+  on "NavigationStateChange" (Json.succeed msg)
+
+
+{-| -}
+onShouldStartLoadWithRequest : msg -> Property msg
+onShouldStartLoadWithRequest msg =
+  on "ShouldStartLoadWithRequest" (Json.succeed msg)
